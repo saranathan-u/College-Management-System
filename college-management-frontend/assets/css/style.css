@@ -1,0 +1,112 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: url("https://png.pngtree.com/thumb_back/fh260/background/20220902/pngtree-liberal-arts-building-learning-college-degree-lifestyle-photo-image_19726056.jpg")
+    no-repeat center center/cover;
+  background-size: cover;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #0f99dfff;
+  color: #f4f4f4;
+  padding: 1rem 2rem;
+}
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+.navbar ul li {
+  margin-left: 2rem;
+}
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+}
+.burger {
+  display: none;
+  cursor: pointer;
+}
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 5px;
+}
+
+.banner {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffffff;
+  text-align: center;
+}
+.banner .btn {
+  padding: 1rem 2rem;
+  background: #fff;
+  color: #004080;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.form-container {
+  width: 300px;
+  margin: 3rem auto;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.form-container h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.form-container input {
+  width: 100%;
+  padding: 0.8rem;
+  margin: 0.5rem 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+.form-container button {
+  width: 100%;
+  padding: 0.8rem;
+  margin-top: 1rem;
+  background: #004080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+footer {
+  text-align: center;
+  background: #222;
+  color: #fff;
+  padding: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+  .burger {
+    display: block;
+  }
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+  .navbar ul.active {
+    display: flex;
+    background: #004080;
+  }
+}

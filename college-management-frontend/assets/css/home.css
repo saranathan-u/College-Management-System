@@ -1,0 +1,219 @@
+/* General Reset */
+body,
+h1,
+h2,
+h3,
+p,
+ul,
+li,
+a {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #004080;
+  padding: 1rem 2rem;
+  color: #fff;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin-left: 2rem;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px;
+}
+
+/* Banner Section */
+.banner {
+  height: 60vh;
+  background: url("https://wallpapers.com/images/featured/college-background-4ucekkclp0tepcan.jpg")
+    no-repeat center center/cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
+}
+
+.banner h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.banner p {
+  font-size: 1.2rem;
+}
+
+/* Overview Section */
+.overview {
+  padding: 3rem 1rem;
+  text-align: center;
+  background: #fff;
+}
+
+.overview h2 {
+  margin-bottom: 1rem;
+  color: #004080;
+}
+
+.overview p {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Highlights Section */
+.highlights {
+  padding: 3rem 1rem;
+  background: #1b67e9ff;
+  text-align: center;
+}
+
+.highlights h2 {
+  margin-bottom: 2rem;
+  color: #004080;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.card {
+  background: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 250px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+.card p {
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Quick Links Section */
+.quick-links {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.quick-links h2 {
+  margin-bottom: 2rem;
+  color: #004080;
+}
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.8rem 2rem;
+  background: #004080;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0066cc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #222;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #004080;
+  }
+
+  .navbar ul.active {
+    display: flex;
+  }
+
+  .burger {
+    display: flex;
+  }
+
+  .card-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .banner h1 {
+    font-size: 2rem;
+  }
+
+  .banner p {
+    font-size: 1rem;
+  }
+}

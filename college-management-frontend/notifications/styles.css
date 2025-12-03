@@ -1,0 +1,47 @@
+/* style.css */
+
+/* General body styling */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+/* Notifications section */
+.notifications-section {
+  width: 90%;
+  max-width: 800px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Section title */
+.notifications-section h2 {
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+}
+
+/* Notification card */
+.notification-card {
+  background-color: #f0f4ff;
+  border-left: 5px solid #4a90e2;
+  padding: 15px 20px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  transition: transform 0.2s;
+}
+
+.notification-card:hover {
+  transform: translateY(-2px);
+}
+
+.notification-card p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
+}

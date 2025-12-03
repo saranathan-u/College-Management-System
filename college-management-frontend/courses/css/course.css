@@ -1,0 +1,158 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0f55bfff;
+  color: #333;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #004080;
+  padding: 1rem 2rem;
+  color: #fff;
+}
+
+.navbar .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.navbar ul {
+  display: flex;
+  list-style: none;
+}
+
+.navbar ul li {
+  margin-left: 2rem;
+}
+
+.navbar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.navbar ul li a.active {
+  text-decoration: underline;
+}
+
+.burger {
+  display: none;
+  cursor: pointer;
+  flex-direction: column;
+}
+
+.burger div {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px;
+}
+
+/* Banner */
+.courses-banner {
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRncto5507EJ762PKXJocyFFJd2WsC1SIr2bw&s")
+    no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 4rem 1rem;
+  position: relative;
+}
+
+.courses-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 0;
+}
+
+.courses-banner h1,
+.courses-banner p {
+  position: relative;
+  z-index: 1;
+}
+
+/* Courses Section */
+.courses-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 1rem;
+}
+
+.course-card {
+  background: #f4f4f4;
+  padding: 1.5rem;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.course-card h2 {
+  color: #004080;
+  margin-bottom: 0.5rem;
+}
+
+.course-card p {
+  margin-bottom: 0.5rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.6rem 1.5rem;
+  background: #004080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #0066cc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  background: #222;
+  color: #fff;
+  padding: 1.5rem 1rem;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar ul {
+    display: none;
+    flex-direction: column;
+    background: #004080;
+    width: 100%;
+  }
+  .navbar ul.active {
+    display: flex;
+  }
+  .burger {
+    display: flex;
+  }
+  .courses-section {
+    flex-direction: column;
+    align-items: center;
+  }
+}

@@ -1,0 +1,93 @@
+<section class="faculty-students">
+  <h2>Manage Students</h2>
+  <table id="studentsTable">
+    <tr>
+      <th>Roll No</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Course</th>
+      <th>Action</th>
+    </tr>
+    <!-- Fetched via API -->
+  </table>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const facultyId = localStorage.getItem("facultyId"); // assuming you store facultyId after login
+    const token = localStorage.getItem("facultyToken"); // assuming JWT token stored after login
+    const table = document.getElementById("studentsTable");
+
+    if (!facultyId || !token) {
+      alert("Please log in first!");
+      window.location.href = "faculty-login.html";
+      return;
+    }
+
+    try {
+      const res = await fetch(
+        `http://localhost:8080/api/faculty/${facultyId}/students`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      if (!res.ok) throw new Error("Failed to fetch students");
+
+      const students = await res.json();
+
+      if (students.length === 0) {
+        const row = document.createElement("tr");
+        row.innerHTML = `<td colspan="5">No students assigned</td>`;
+        table.appendChild(row);
+      } else {
+        students.forEach((student) => {
+          const row = document.createElement("tr");
+          row.innerHTML = `
+          <td>${student.rollNo}</td>
+          <td>${student.name}</td>
+          <td>${student.email}</td>
+          <td>${student.course ? student.course.title : "N/A"}</td>
+          <td>
+            <button onclick="removeStudent('${student.id}')">Remove</button>
+          </td>
+        `;
+          table.appendChild(row);
+        });
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Error fetching students.");
+    }
+  });
+
+  // Optional: Remove student function
+  async function removeStudent(studentId) {
+    const facultyId = localStorage.getItem("facultyId");
+    const token = localStorage.getItem("facultyToken");
+
+    if (!confirm("Are you sure you want to remove this student?")) return;
+
+    try {
+      const res = await fetch(
+        `http://localhost:8080/api/faculty/${facultyId}/students/${studentId}`,
+        {
+          method: "DELETE",
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      if (res.ok) {
+        alert("Student removed successfully");
+        location.reload();
+      } else {
+        alert("Failed to remove student");
+      }
+    } catch (err) {
+      console.error(err);
+      alert("Server error");
+    }
+  }
+</script>

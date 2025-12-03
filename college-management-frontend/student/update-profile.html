@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Update Profile</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f5f7fa;
+        margin: 40px;
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      .form-container {
+        max-width: 500px;
+        margin: 30px auto;
+        background-color: #fff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      input {
+        width: 100%;
+        padding: 10px;
+        margin: 10px 0;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+      }
+
+      button {
+        width: 100%;
+        padding: 10px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      .back-btn {
+        margin-top: 15px;
+        background-color: #2196f3;
+      }
+
+      .back-btn:hover {
+        background-color: #0b7dda;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>📝 Update Your Profile</h2>
+
+    <div class="form-container">
+      <form id="updateProfileForm">
+        <input type="text" id="updateName" placeholder="Name" /><br />
+        <input type="text" id="updateContact" placeholder="Contact" /><br />
+        <input type="text" id="updateDept" placeholder="Department" /><br />
+        <input type="text" id="updateRollNo" placeholder="Roll No" /><br />
+        <input type="file" id="updatePhoto" accept="image/*" /><br />
+        <button type="submit">Update Profile</button>
+      </form>
+
+      <button class="back-btn" onclick="goBackToDashboard()">
+        ⬅️ Back to Dashboard
+      </button>
+    </div>
+
+    <script src="js/update-profile.js" defer></script>
+  </body>
+</html>

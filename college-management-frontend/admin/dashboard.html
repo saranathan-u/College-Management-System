@@ -1,0 +1,33 @@
+<section class="admin-dashboard">
+  <h2>Admin Dashboard</h2>
+  <div id="summary">
+    <!-- Total students, faculty, courses -->
+  </div>
+</section>
+
+<script>
+  const backendUrl = "http://localhost:8080"; // Spring Boot server
+
+  async function fetchCounts() {
+    try {
+      // Fetch students
+      const studentsRes = await fetch(`${backendUrl}/api/student`);
+      const students = await studentsRes.json();
+      document.getElementById("total-students").textContent = students.length;
+
+      // Fetch faculty
+      const facultyRes = await fetch(`${backendUrl}/api/faculty`);
+      const faculty = await facultyRes.json();
+      document.getElementById("total-faculty").textContent = faculty.length;
+
+      // Fetch courses
+      const coursesRes = await fetch(`${backendUrl}/api/courses`);
+      const courses = await coursesRes.json();
+      document.getElementById("total-courses").textContent = courses.length;
+    } catch (error) {
+      console.error("Error fetching data from backend:", error);
+    }
+  }
+
+  fetchCounts(); // call the function on page load
+</script>

@@ -1,0 +1,39 @@
+<section class="course-details">
+  <h2>Course Details</h2>
+  <div id="courseInfo">
+    <!-- Details fetched via API -->
+  </div>
+</section>
+
+<script>
+  // Fetch course data from backend
+  fetch("http://localhost:8080/api/courses")
+    .then((response) => response.json())
+    .then((courses) => {
+      const container = document.getElementById("courseInfo");
+
+      if (courses.length === 0) {
+        container.innerHTML = "<p>No courses available.</p>";
+        return;
+      }
+
+      courses.forEach((course) => {
+        const div = document.createElement("div");
+        div.classList.add("course-card");
+
+        div.innerHTML = `
+          <h3>${course.title}</h3>
+          <p><strong>Description:</strong> ${course.description}</p>
+          <p><strong>Credits:</strong> ${course.credits}</p>
+          <p><strong>Duration:</strong> ${course.duration}</p>
+        `;
+
+        container.appendChild(div);
+      });
+    })
+    .catch((error) => {
+      document.getElementById("courseInfo").innerHTML =
+        "<p style='color:red;'>Failed to load courses.</p>";
+      console.error("Error fetching courses:", error);
+    });
+</script>

@@ -1,0 +1,40 @@
+<section class="supplier-items">
+  <h2>Supplier Items</h2>
+  <table id="supplierTable">
+    <tr>
+      <th>Item Name</th>
+      <th>Description</th>
+      <th>Price</th>
+    </tr>
+    <!-- Fetched via API -->
+  </table>
+</section>
+
+<script>
+  const apiUrl = "http://localhost:8080/api/suppliers/items"; // backend URL
+
+  async function fetchSupplierItems() {
+    try {
+      const response = await fetch(apiUrl);
+      if (!response.ok) throw new Error("Network error");
+
+      const items = await response.json();
+      const tbody = document.querySelector("#supplierTable tbody");
+      tbody.innerHTML = "";
+
+      items.forEach((item) => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td>${item.itemName}</td>
+          <td>${item.description}</td>
+          <td>${item.price}</td>
+        `;
+        tbody.appendChild(row);
+      });
+    } catch (err) {
+      console.error("Error fetching items:", err);
+    }
+  }
+
+  window.onload = fetchSupplierItems; // fetch on page load
+</script>

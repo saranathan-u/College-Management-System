@@ -1,0 +1,88 @@
+<section class="faculty-grades">
+  <h2>Upload Grades</h2>
+  <form id="uploadGradesForm">
+    <select id="courseSelect"></select>
+    <input type="text" id="rollNo" placeholder="Student Roll No" required />
+    <input type="text" id="grade" placeholder="Grade" required />
+    <button type="submit">Submit</button>
+  </form>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const facultyId = localStorage.getItem("facultyId");
+    const token = localStorage.getItem("facultyToken");
+
+    if (!facultyId || !token) {
+      alert("Please log in first!");
+      window.location.href = "faculty-login.html";
+      return;
+    }
+
+    const courseSelect = document.getElementById("courseSelect");
+
+    // ✅ Fetch courses assigned to faculty
+    try {
+      const res = await fetch(
+        `http://localhost:8080/api/faculty/${facultyId}/courses`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
+
+      if (!res.ok) throw new Error("Failed to fetch courses");
+
+      const courses = await res.json();
+
+      courses.forEach((course) => {
+        const option = document.createElement("option");
+        option.value = course.id;
+        option.textContent = course.title;
+        courseSelect.appendChild(option);
+      });
+    } catch (err) {
+      console.error(err);
+      alert("Error loading courses.");
+    }
+
+    // ✅ Handle form submission
+    document
+      .getElementById("uploadGradesForm")
+      .addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const courseId = courseSelect.value;
+        const rollNo = document.getElementById("rollNo").value;
+        const grade = document.getElementById("grade").value;
+
+        if (!courseId) {
+          alert("Please select a course.");
+          return;
+        }
+
+        try {
+          const res = await fetch(
+            `http://localhost:8080/api/faculty/${facultyId}/grades`,
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: `Bearer ${token}`,
+              },
+              body: JSON.stringify({ courseId, rollNo, grade }),
+            }
+          );
+
+          if (res.ok) {
+            alert("Grade uploaded successfully!");
+            document.getElementById("uploadGradesForm").reset();
+          } else {
+            alert("Failed to upload grade. Try again.");
+          }
+        } catch (err) {
+          console.error(err);
+          alert("Server error.");
+        }
+      });
+  });
+</script>

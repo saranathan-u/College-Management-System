@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Student Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 40px;
+        background-color: #f7f9fc;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      .profile-container {
+        display: flex;
+        align-items: center;
+        margin-top: 20px;
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .profile-container img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        margin-right: 20px;
+        border: 2px solid #444;
+        object-fit: cover;
+      }
+
+      .profile-details {
+        font-size: 16px;
+      }
+
+      .profile-details p {
+        margin: 6px 0;
+      }
+
+      .upload-section {
+        margin-top: 25px;
+      }
+
+      .upload-section input {
+        padding: 8px;
+      }
+
+      .upload-section button {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      .upload-section button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Welcome, <span id="studentName"></span> 👋</h2>
+
+    <div class="profile-container">
+      <!-- ✅ Use consistent default image path -->
+      <img id="studentPhoto" src="" ; alt="Profile Picture" />
+      <div class="profile-details">
+        <p><strong>Email:</strong> <span id="studentEmail"></span></p>
+        <p><strong>Contact:</strong> <span id="studentContact"></span></p>
+        <p><strong>Roll No:</strong> <span id="studentRollNo"></span></p>
+        <p><strong>Department:</strong> <span id="studentDept"></span></p>
+      </div>
+    </div>
+    <br />
+    <br />
+
+    <div class="actions">
+      <button onclick="goToEnroll()">🎓 Enroll in Courses</button>
+      <button onclick="goToUpdateProfile()">📝 Update Profile</button>
+    </div>
+    <br />
+
+    <!-- ✅ Ensure correct JS path (adjust if needed) -->
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

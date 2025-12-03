@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faculty Login - College Management System</title>
+    <link rel="stylesheet" href="css/login.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="logo">Crescendo</div>
+      <ul>
+        <li><a href="../home.html">Home</a></li>
+        <li><a href="../about.html">About</a></li>
+        <li><a href="../contact.html">Contact</a></li>
+        <li><a href="../student/login.html">Student</a></li>
+        <li><a href="login.html" class="active">Faculty</a></li>
+        <li><a href="../courses/list.html">Courses</a></li>
+      </ul>
+      <div class="burger">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </nav>
+
+    <!-- Faculty Login Banner -->
+    <section class="faculty-banner">
+      <h1>Faculty Login</h1>
+      <p>Access your dashboard to manage students, grades, and courses</p>
+    </section>
+
+    <!-- Login Form -->
+    <section class="login-section">
+      <div class="login-box">
+        <h2>Login</h2>
+        <form id="facultyLoginForm">
+          <input type="email" id="email" placeholder="Email" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit" class="btn">Login</button>
+        </form>
+        <p class="alt-link">
+          Not a faculty? <a href="../faculty/register.html">Faculty Register</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p>&copy; 2025 College Management System. All Rights Reserved.</p>
+    </footer>
+
+    <script src="../js/navbar.js"></script>
+    <script src="/faculty/js/faculty-login.js"></script>
+  </body>
+</html>

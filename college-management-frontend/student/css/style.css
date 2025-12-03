@@ -1,0 +1,68 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  background-image: url("https://images.pexels.com/photos/399161/pexels-photo-399161.jpeg");
+  background-size: cover; /* Fill entire screen */
+  background-position: center; /* Center the image */
+  background-repeat: no-repeat; /* No repeating */
+  background-attachment: fixed; /* Fixed when scrolling */
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.form-container {
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  width: 350px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+h2 {
+  margin-bottom: 20px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #120cc6ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #3b0ed0ff;
+}
+
+p {
+  margin-top: 15px;
+}
+
+a {
+  color: #3c0dd9ff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

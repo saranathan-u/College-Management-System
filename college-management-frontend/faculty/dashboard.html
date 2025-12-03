@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Faculty Dashboard</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f7f9fc;
+        margin: 40px;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      .profile {
+        background: #fff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+        width: 500px;
+        margin: 20px auto;
+      }
+
+      button {
+        padding: 8px 16px;
+        background-color: #4caf50;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+
+  <body>
+    <h2>Welcome, <span id="facultyName"></span> 👋</h2>
+
+    <div class="profile">
+      <p><strong>Email:</strong> <span id="facultyEmail"></span></p>
+      <p><strong>Department:</strong> <span id="facultyDepartment"></span></p>
+      <p><strong>Contact:</strong> <span id="facultyContact"></span></p>
+      <button id="logoutBtn">Logout</button>
+    </div>
+
+    <script src="js/faculty-dashboard.js" defer></script>
+  </body>
+</html>
